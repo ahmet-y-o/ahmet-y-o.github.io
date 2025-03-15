@@ -1,0 +1,84 @@
+@use '../../node_modules/tachyons/css/tachyons.css';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    a:hover::after {
+
+        content: "🔗";
+        font-size: medium;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+}
+
+h1 {
+    @extend .f1;
+}
+
+h2 {
+    @extend .f2;
+}
+
+h3 {
+    @extend .f3;
+}
+
+h4 {
+    @extend .f4;
+}
+
+h5 {
+    @extend .f5;
+}
+
+h6 {
+    @extend .f6;
+}
+
+p {
+    @extend .lh-copy
+}
+
+.toc1 {
+    padding-left: 0rem;
+    list-style-position: inside;
+}
+
+.toc2 {
+    padding-left: 2rem;
+    list-style-position: inside;
+}
+
+.toc3 {
+    padding-left: 4rem;
+    list-style-position: inside;
+}
+
+.toc4 {
+    padding-left: 6rem;
+    list-style-position: inside;
+}
+
+.toc5 {
+    padding-left: 8rem;
+    list-style-position: inside;
+}
+
+.toc6 {
+    padding-left: 10rem;
+    list-style-position: inside;
+}
+
+a {
+    text-decoration: none;
+    @extend .dark-blue;
+}
+
+a.disabled {
+    @extend .gray;
+    text-decoration: underline;
+}
