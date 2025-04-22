@@ -7,12 +7,12 @@ h4,
 h5,
 h6 {
     a:hover::after {
-
         content: "🔗";
         font-size: medium;
         cursor: pointer;
         margin-left: 10px;
     }
+    @extend .serif;
 }
 
 h1 {
@@ -21,6 +21,7 @@ h1 {
 
 h2 {
     @extend .f2;
+    font-weight: 100;
 }
 
 h3 {

@@ -1,19 +1,87 @@
-{% extends "layouts/base.html" %}
-
+{% extends "layouts/base-fluid.html" %}
+<h1>three section layout</h1>
 {% block content %}
 
+<style>
+    .collapsed {
+        display: none !important;
+    }
+
+    .close {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    .close::before,
+    .close::after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: #333;
+    }
+
+    .close::before {
+        transform: rotate(45deg);
+    }
+
+    .close::after {
+        transform: rotate(-45deg);
+    }
+</style>
+
+
 <div class="cf">
-    <div class="fl ph2 pv4 w-20">
+    <div class="w-100 dn-l bb pv2">
+        <div class="mh3 mv3 di" id="collapse-button" style="cursor: pointer;">
+            <?xml version="1.0" ?>
+            <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg
+                height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32"
+                width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path
+                    d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" />
+            </svg>
+        </div>
+    </div>
+    <!-- Sidenav seen in large views  -->
+    <div class="fl pl4 pv4 w-20 dn db-l">
         {% block leftside %}{% endblock %}
     </div>
-    
-    <div class="fl ph5 pv4 w-60 bl br">
-        {% block leftside %}{% endblock %}
+    <!-- sidenav seen in collapsable -->
+    <div class="dr dn-l fixed top-0 left-0 z-5 bg-light-gray w-100 ph4 pv3 h-100 f4" id="collapsable-sidenav">
+        <div class="cf">
+        <div class="close fr" id="close-button"></div>
+    </div>
+        {% block collapsibleleftside %}{% endblock %}
     </div>
 
-    <div class="fl pr2 pv4 pl3 w-20">
-        {% block leftside %}{% endblock %}
+
+    <div class="fl ph5-ns ph3 pv4 w-60-l bl-l br-l w-100">
+        {% block middle %}{% endblock %}
+    </div>
+
+    <div class="fl pl4 pv4 w-20 dn db-l">
+        {% block rightside %}{% endblock %}
     </div>
 </div>
+
+<script>
+    const btn = document.getElementById("collapse-button");
+    const leftside = document.getElementById("collapsable-sidenav");
+    const closebtn = document.getElementById("close-button");
+
+    btn.onclick = () => {
+        leftside.classList.toggle('collapsed');
+    }
+
+    closebtn.onclick = () => {
+        leftside.classList.toggle('collapsed');
+    }
+
+</script>
 
 {% endblock %}

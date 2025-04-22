@@ -1,10 +1,6 @@
-{% extends "layouts/base.html" %}
+{% extends "layouts/three-section-layout.html" %}
 
-{% block content %}
-
-<div class="cf">
-    <ul class="fl ph2 pv4 w-20">
-
+    {% block leftside %}
         <li class="pa1 toc1"><a href="/">Home</a></li>
         <li class="pa1 toc2"><a href="/projects">Projects</a></li>
 
@@ -23,9 +19,9 @@
         {% endif %}
         {% endif %}
         {% endfor %}
-    </ul>
+    {% endblock leftside %}
 
-    <div class="fl ph5 pv4 w-60 bl br" style="min-height: 100vh;">
+    {% block middle %}
         <h1><a href="{{ page.url }}">{{ title | safe }}</a></h1>
         {{ content | permalinkFilter |safe }}
 
@@ -40,14 +36,10 @@
             {% endif %}
             {% endfor %}
         </ol>
+    {% endblock middle %}
 
-    </div>
-
-    <ul class="fl pr2 pv4 pl3 w-20">
+    {% block rightside %}
         {% for item in (content | tocFilter) %}
         <li class="toc{{item.level}} pv1"><a href="#{{ item.text | slugify }}">{{ item.text }}</a></li>
         {% endfor %}
-    </ul>
-</div>
-
-{% endblock %}
+    {% endblock %}
