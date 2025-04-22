@@ -1,0 +1,15 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+
+
+<ul>
+    {% set projects = collections.project | uniqueProjectNames %}
+    {% for project in projects %}
+    <li><a href="{{project.link}}">{{ project.name }}</a></li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}

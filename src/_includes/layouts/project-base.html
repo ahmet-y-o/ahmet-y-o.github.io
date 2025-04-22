@@ -1,0 +1,45 @@
+{% extends "layouts/three-section-layout.html" %}
+
+    {% block leftside %}
+        <li class="pa1 toc1"><a href="/">Home</a></li>
+        <li class="pa1 toc2"><a href="/projects">Projects</a></li>
+
+        {% for article in collections.project %}
+        {% if article.data.project != project %}
+        {% else %}
+        
+        {% if article.data.order == -1 %}
+        <li class="pa1 toc3"><a class="disabled">{{ article.data.title }}</a></li>
+        {% else %}
+        {% if article.url != page.url %}
+        <li class="pa1 toc3"><a href="{{ article.url }}">{{ article.data.order }} - {{ article.data.title }}</a></li>
+        {% else %}
+        <li class="pa1 toc3"><a class="disabled">{{ article.data.order }} - {{ article.data.title }}</a></li>
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+    {% endblock leftside %}
+
+    {% block middle %}
+        <h1><a href="{{ page.url }}">{{ title | safe }}</a></h1>
+        {{ content | permalinkFilter |safe }}
+
+        <ol start="0">
+            {% for article in collections.project %}
+            {% if article.data.project != project %}
+            {% else %}
+            {% if article.data.order == -1 %}
+            {% else %}
+            <li><a href="{{article.url}}">{{article.data.title}}</a></li>
+            {% endif%}
+            {% endif %}
+            {% endfor %}
+        </ol>
+    {% endblock middle %}
+
+    {% block rightside %}
+        {% for item in (content | tocFilter) %}
+        <li class="toc{{item.level}} pv1"><a href="#{{ item.text | slugify }}">{{ item.text }}</a></li>
+        {% endfor %}
+    {% endblock %}

@@ -1,0 +1,64 @@
+{% extends "layouts/three-section-layout.html" %}
+
+
+{% block leftside %}
+<ul class="pl0">
+    <li class="pa1 toc1"><a href="/">Home</a></li>
+    <li class="pa1 toc2"><a href="/projects">Projects</a></li>
+
+    {% for article in collections.project %}
+        {% if article.data.project != project %}
+        {% else %}
+
+        {% if article.data.order == -1 %}
+            <li class="pa1 toc3"><a href="{{ article.url }}">{{ article.data.title }}</a></li>
+        {% else %}
+        {% if article.url != page.url %}
+            <li class="pa1 toc3"><a href="{{ article.url }}">{{ article.data.order }} - {{ article.data.title }}</a></li>
+        {% else %}
+            <li class="pa1 toc3"><a class="disabled">{{ article.data.order }} - {{ article.data.title }}</a></li>
+        {% endif %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+</ul>
+{% endblock leftside %}
+
+{% block collapsibleleftside %}
+<ul class="pl0">
+    <li class="pa1 toc1"><a href="/">Home</a></li>
+    <li class="pa1 toc2"><a href="/projects">Projects</a></li>
+
+    {% for article in collections.project %}
+        {% if article.data.project != project %}
+        {% else %}
+
+        {% if article.data.order == -1 %}
+            <li class="pa1 toc3"><a href="{{ article.url }}">{{ article.data.title }}</a></li>
+        {% else %}
+        {% if article.url != page.url %}
+            <li class="pa1 toc3"><a href="{{ article.url }}">{{ article.data.order }} - {{ article.data.title }}</a></li>
+        {% else %}
+            <li class="pa1 toc3"><a class="disabled">{{ article.data.order }} - {{ article.data.title }}</a></li>
+        {% endif %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+</ul>
+{% endblock collapsibleleftside %}
+
+
+
+{% block middle %}
+    <h1><a href="{{ page.url }}">{{ title | safe }}</a></h1>
+    {{ content | permalinkFilter |safe }}
+{% endblock %}
+
+
+{% block rightside %}
+<ul class="pl0">
+    {% for item in (content | tocFilter) %}
+    <li class="toc{{item.level}} pv1"><a href="#{{ item.text | slugify }}">{{ item.text }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
