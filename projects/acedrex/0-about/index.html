@@ -9,88 +9,206 @@
     <link rel="stylesheet" href="/css/index.css">
 </head>
 
-<body class="bg-white dark-gray">
-    <main class="ph7-l ph0-m ph0 ">
+<body class="bg-white dark-gray sans-serif">
+    <main class="ph0 ">
         
+
+<style>
+    .collapsed {
+        display: none !important;
+    }
+
+    .close {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    .close::before,
+    .close::after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: #333;
+    }
+
+    .close::before {
+        transform: rotate(45deg);
+    }
+
+    .close::after {
+        transform: rotate(-45deg);
+    }
+</style>
+
 
 <div class="cf">
-    <ul class="fl ph2 pv4 w-20">
+    <div class="w-100 dn-l bb pv2">
+        <div class="mh3 mv3 di" id="collapse-button" style="cursor: pointer;">
+            
+            <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"></path>
+            </svg>
+        </div>
+    </div>
+    <!-- Sidenav seen in large views  -->
+    <div class="fl pl4 pv4 w-20 dn db-l">
+        
+<ul class="pl0">
+    <li class="pa1 toc1"><a href="/">Home</a></li>
+    <li class="pa1 toc2"><a href="/projects">Projects</a></li>
 
-        <li class="pa1 toc1"><a href="/">Home</a></li>
-        <li class="pa1 toc2"><a href="/projects">Projects</a></li>
-
-        
-
-        
-        
-        
-        
-        <li class="pa1 toc3"><a href="/projects/acedrex/">Acedrex Index</a></li>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <li class="pa1 toc3"><a class="disabled">0 - About</a></li>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <li class="pa1 toc3"><a href="/projects/acedrex/1-rules/">1 - Rules</a></li>
-        
-        
-        
-        
-        
-        
-        
-        
-        <li class="pa1 toc3"><a href="/projects/acedrex/2-infrastructure-plan/">2 - Infrastructure Plan</a></li>
-        
-        
-        
-        
-    </ul>
     
-    <div class="fl ph5 pv4 w-60 bl br">
-        <h1 id="about"><a href="/projects/acedrex/0-about/">About</a></h1>
-        <h2 id="overview"><a href="#overview">Overview</a></h2><p>This project is about designing and implementing an online multiplayer <a href="https://en.wikipedia.org/wiki/Chess">chess</a>-<a href="https://en.wikipedia.org/wiki/Chess_variant">variant</a> (<a href="https://en.wikipedia.org/wiki/Grant_Acedrex">grant acedrex</a>) platform. I will be sharing with you my journey through this ordeal. This series is intended for readers who are more interested in project design and architecture as implementation is rather naive. If this platform gains popularity, I will be implementing better performance algorithms. If you are more interested in chess programming, you should definitely check out <a href="https://www.chessprogramming.org/Main_Page">chessprogramming.org</a>.  Without further ado, lets start.</p><h2 id="motivation"><a href="#motivation">Motivation</a></h2><p>I love chess and as a developer I always wanted to write a chess engine. But for this project, I wanted to create something new as there are many good implementations of classical chess. Looking through chess variants, I stumbled upon Grant Acedrex and after a quick investigation, found that there are no online platforms to play this variant. The variant seemed fun to me on the first glance and I decided to implement it.</p><h2 id="technology"><a href="#technology">Technology</a></h2><h3 id="frontend"><a href="#frontend">Frontend</a></h3><h4 id="angular-as-frontend-framework"><a href="#angular-as-frontend-framework">Angular as Frontend Framework</a></h4><p>I decided to use Angular as I've never tried it and I've heard that it is great for enterprise and is great for organising big projects (as I've been struggling with it using <a href="https://react.dev/">React</a>).</p><h4 id="tailwindcss-as-css-library"><a href="#tailwindcss-as-css-library">TailwindCSS as CSS library</a></h4><p>I decided to use <a href="https://tailwindcss.com/">TailwindCSS</a> as I was creating one of my passion projects and wanted it to have an original design. This means I have to design how my platform will look as opposed to using something more opinionated like <a href="https://bulma.io/">Bulma</a> or <a href="https://getbootstrap.com/">Bootstrap</a></p><h3 id="backend"><a href="#backend">Backend</a></h3><h4 id="go-as-backend"><a href="#go-as-backend">Go as Backend</a></h4><p>I've used Go before but not in a deployed project. I wanted to quickly create a webservice with good performance and found Go to be the best alternative. Other options I've pondered were Haskell, Scala and C++. Getting closer to finishing the project, I've come to the conclusion that using C++ to implement the engine and using LaravelPHP or Go as the platform's web backend would have been more appropriate.</p><h4 id="no-db"><a href="#no-db">No DB</a></h4><p>I didn't plan any auth or history database for this project. I only wanted a platform where friends can play together. After publishing it, if a userbase is formed, I will implement these features. If that time comes, I am considering <a href="https://github.com/redis/redis">Redis</a> and <a href="https://www.sqlite.org/">SQLite</a> for databases.</p>
+        
+
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/">Acedrex Index</a></li>
+        
+    
+
+        
+        
+
+        
+
+        
+        
+            <li class="pa1 toc3"><a class="disabled">0 - About</a></li>
+        
+        
+    
+
+        
+        
+
+        
+
+        
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/1-rules/">1 - Rules</a></li>
+        
+        
+    
+
+        
+
+        
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/2-infrastructure-plan/">2 - Infrastructure Plan</a></li>
+        
+        
+    
+
+</ul>
+
+    </div>
+    <!-- sidenav seen in collapsable -->
+    <div class="dr dn-l fixed top-0 left-0 z-5 bg-light-gray w-100 ph4 pv3 h-100 f4" id="collapsable-sidenav">
+        <div class="cf">
+        <div class="close fr" id="close-button"></div>
+    </div>
+        
+<ul class="pl0">
+    <li class="pa1 toc1"><a href="/">Home</a></li>
+    <li class="pa1 toc2"><a href="/projects">Projects</a></li>
+
+    
+        
+
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/">Acedrex Index</a></li>
+        
+    
+
+        
+        
+
+        
+
+        
+        
+            <li class="pa1 toc3"><a class="disabled">0 - About</a></li>
+        
+        
+    
+
+        
+        
+
+        
+
+        
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/1-rules/">1 - Rules</a></li>
+        
+        
+    
+
+        
+
+        
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/2-infrastructure-plan/">2 - Infrastructure Plan</a></li>
+        
+        
+    
+
+</ul>
+
     </div>
 
-    <ul class="fl pr2 pv4 pl3 w-20">
+
+    <div class="fl ph5-ns ph3 pv4 w-60-l bl-l br-l w-100">
         
-        <li class="toc1 pv1"><a href="#overview">Overview</a></li>
+    <h1 id="about"><a href="/projects/acedrex/0-about/">About</a></h1>
+    <h2 id="overview"><a href="#overview">Overview</a></h2><p>This project is about designing and implementing an online multiplayer <a href="https://en.wikipedia.org/wiki/Chess">chess</a>-<a href="https://en.wikipedia.org/wiki/Chess_variant">variant</a> (<a href="https://en.wikipedia.org/wiki/Grant_Acedrex">grant acedrex</a>) platform. I will be sharing with you my journey through this ordeal. This series is intended for readers who are more interested in project design and architecture as implementation is rather naive. If this platform gains popularity, I will be implementing better performance algorithms. If you are more interested in chess programming, you should definitely check out <a href="https://www.chessprogramming.org/Main_Page">chessprogramming.org</a>.  Without further ado, lets start.</p><h2 id="motivation"><a href="#motivation">Motivation</a></h2><p>I love chess and as a developer I always wanted to write a chess engine. But for this project, I wanted to create something new as there are many good implementations of classical chess. Looking through chess variants, I stumbled upon Grant Acedrex and after a quick investigation, found that there are no online platforms to play this variant. The variant seemed fun to me on the first glance and I decided to implement it.</p><h2 id="technology"><a href="#technology">Technology</a></h2><h3 id="frontend"><a href="#frontend">Frontend</a></h3><h4 id="angular-as-frontend-framework"><a href="#angular-as-frontend-framework">Angular as Frontend Framework</a></h4><p>I decided to use Angular as I've never tried it and I've heard that it is great for enterprise and is great for organising big projects (as I've been struggling with it using <a href="https://react.dev/">React</a>).</p><h4 id="tailwindcss-as-css-library"><a href="#tailwindcss-as-css-library">TailwindCSS as CSS library</a></h4><p>I decided to use <a href="https://tailwindcss.com/">TailwindCSS</a> as I was creating one of my passion projects and wanted it to have an original design. This means I have to design how my platform will look as opposed to using something more opinionated like <a href="https://bulma.io/">Bulma</a> or <a href="https://getbootstrap.com/">Bootstrap</a></p><h3 id="backend"><a href="#backend">Backend</a></h3><h4 id="go-as-backend"><a href="#go-as-backend">Go as Backend</a></h4><p>I've used Go before but not in a deployed project. I wanted to quickly create a webservice with good performance and found Go to be the best alternative. Other options I've pondered were Haskell, Scala and C++. Getting closer to finishing the project, I've come to the conclusion that using C++ to implement the engine and using LaravelPHP or Go as the platform's web backend would have been more appropriate.</p><h4 id="no-db"><a href="#no-db">No DB</a></h4><p>I didn't plan any auth or history database for this project. I only wanted a platform where friends can play together. After publishing it, if a userbase is formed, I will implement these features. If that time comes, I am considering <a href="https://github.com/redis/redis">Redis</a> and <a href="https://www.sqlite.org/">SQLite</a> for databases.</p>
+
+    </div>
+
+    <div class="fl pl4 pv4 w-20 dn db-l">
         
-        <li class="toc1 pv1"><a href="#motivation">Motivation</a></li>
-        
-        <li class="toc1 pv1"><a href="#technology">Technology</a></li>
-        
-        <li class="toc2 pv1"><a href="#frontend">Frontend</a></li>
-        
-        <li class="toc3 pv1"><a href="#angular-as-frontend-framework">Angular as Frontend Framework</a></li>
-        
-        <li class="toc3 pv1"><a href="#tailwindcss-as-css-library">TailwindCSS as CSS library</a></li>
-        
-        <li class="toc2 pv1"><a href="#backend">Backend</a></li>
-        
-        <li class="toc3 pv1"><a href="#go-as-backend">Go as Backend</a></li>
-        
-        <li class="toc3 pv1"><a href="#no-db">No DB</a></li>
-        
-    </ul>
+<ul class="pl0">
+    
+    <li class="toc1 pv1"><a href="#overview">Overview</a></li>
+    
+    <li class="toc1 pv1"><a href="#motivation">Motivation</a></li>
+    
+    <li class="toc1 pv1"><a href="#technology">Technology</a></li>
+    
+    <li class="toc2 pv1"><a href="#frontend">Frontend</a></li>
+    
+    <li class="toc3 pv1"><a href="#angular-as-frontend-framework">Angular as Frontend Framework</a></li>
+    
+    <li class="toc3 pv1"><a href="#tailwindcss-as-css-library">TailwindCSS as CSS library</a></li>
+    
+    <li class="toc2 pv1"><a href="#backend">Backend</a></li>
+    
+    <li class="toc3 pv1"><a href="#go-as-backend">Go as Backend</a></li>
+    
+    <li class="toc3 pv1"><a href="#no-db">No DB</a></li>
+    
+</ul>
+
+    </div>
 </div>
+
+<script>
+    const btn = document.getElementById("collapse-button");
+    const leftside = document.getElementById("collapsable-sidenav");
+    const closebtn = document.getElementById("close-button");
+
+    btn.onclick = () => {
+        leftside.classList.toggle('collapsed');
+    }
+
+    closebtn.onclick = () => {
+        leftside.classList.toggle('collapsed');
+    }
+
+</script>
 
 
     </main>

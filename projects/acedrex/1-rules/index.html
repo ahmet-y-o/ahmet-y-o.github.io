@@ -9,104 +9,222 @@
     <link rel="stylesheet" href="/css/index.css">
 </head>
 
-<body class="bg-white dark-gray">
-    <main class="ph7-l ph0-m ph0 ">
+<body class="bg-white dark-gray sans-serif">
+    <main class="ph0 ">
         
+
+<style>
+    .collapsed {
+        display: none !important;
+    }
+
+    .close {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    .close::before,
+    .close::after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: #333;
+    }
+
+    .close::before {
+        transform: rotate(45deg);
+    }
+
+    .close::after {
+        transform: rotate(-45deg);
+    }
+</style>
+
 
 <div class="cf">
-    <ul class="fl ph2 pv4 w-20">
+    <div class="w-100 dn-l bb pv2">
+        <div class="mh3 mv3 di" id="collapse-button" style="cursor: pointer;">
+            
+            <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"></path>
+            </svg>
+        </div>
+    </div>
+    <!-- Sidenav seen in large views  -->
+    <div class="fl pl4 pv4 w-20 dn db-l">
+        
+<ul class="pl0">
+    <li class="pa1 toc1"><a href="/">Home</a></li>
+    <li class="pa1 toc2"><a href="/projects">Projects</a></li>
 
-        <li class="pa1 toc1"><a href="/">Home</a></li>
-        <li class="pa1 toc2"><a href="/projects">Projects</a></li>
-
-        
-
-        
-        
-        
-        
-        <li class="pa1 toc3"><a href="/projects/acedrex/">Acedrex Index</a></li>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <li class="pa1 toc3"><a href="/projects/acedrex/0-about/">0 - About</a></li>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <li class="pa1 toc3"><a class="disabled">1 - Rules</a></li>
-        
-        
-        
-        
-        
-        
-        
-        
-        <li class="pa1 toc3"><a href="/projects/acedrex/2-infrastructure-plan/">2 - Infrastructure Plan</a></li>
-        
-        
-        
-        
-    </ul>
     
-    <div class="fl ph5 pv4 w-60 bl br">
-        <h1 id="rules"><a href="/projects/acedrex/1-rules/">Rules</a></h1>
-        <p>Grant Acedrex is a 12x12 chess variant with some fairy-chess pieces like Aanca, Unicornio and Giraffe. There are a total of 8 different pieces.</p><h2 id="pieces"><a href="#pieces">Pieces:</a></h2><h3 id="pawn"><a href="#pawn">Pawn</a></h3><p>Grant Acedrex pawns, like in classical chess, can only move forward and capture one 1 forwards-diagonal. Unlike classical chess though, there is no double forward as the first move or there is no enpassent capture. When reaching opposing backrank, instead of promoting to any piece, they promote to the piece that was originally on that square (e.g. a rook pawn will promote to only a rook).</p><h3 id="rook"><a href="#rook">Rook</a></h3><p>Identical to their classical counterparts.</p><h3 id="lion"><a href="#lion">Lion</a></h3><p>Lion can move as a (3,1) or (3,0) leaper.</p><h3 id="unicornio"><a href="#unicornio">Unicornio</a></h3><p>One of the most interesting fairy-pieces. At first it leaps like a classical knight (2,1), and then optionally, it can move any number of squares outwards on the diagonal of the leap.</p><h3 id="giraffe"><a href="#giraffe">Giraffe</a></h3><p>Giraffe moves as a (3,2) leaper.</p><h3 id="crocodile"><a href="#crocodile">Crocodile</a></h3><p>Identical to bishop in classical chess.</p><h3 id="aanca"><a href="#aanca">Aanca</a></h3><p>This piece's movement is also 2 parts like Unicornio. First, it moves 1 square in any diagonal, and then optionally, it moves any number of squares outwards on the orthogonal.</p><p><img src="/projects/acedrex/images/aanca_movement.png" alt="Alt text"></p><h3 id="king"><a href="#king">King</a></h3><p>Moves 1 square in any direction like in classical chess. For it's first move it can also can leap 2 squares on a chosen direction orthogonal or diagonal (but not both i.e. one forward and one left diagonal). There is no castling in Grant-Acedrex.</p><h2 id="game-end"><a href="#game-end">Game End</a></h2><h3 id="winning"><a href="#winning">Winning</a></h3><p>A player wins if at least one of the three conditions happen:</p><h4 id="checkmate"><a href="#checkmate">Checkmate</a></h4><p>Checkmate happens if a player's king is under check and there are no legal moves for the player. In this position, player whose king is under check becomes checkmated and loses the game.</p><h4 id="stalemate"><a href="#stalemate">Stalemate</a></h4><p>Stalemate happens if a player's king is NOT under check and there are no legal moves for the player. In this scenario, the player who is stalemated loses. In classical chess, this results in a draw.</p><h4 id="all-pieces-are-captured"><a href="#all-pieces-are-captured">All Pieces Are Captured</a></h4><p>If one of the player's all pieces are captured (except the king as king cannot be captured), that player loses the game.</p><h3 id="draws"><a href="#draws">Draws</a></h3><p>There are no conditions for the draw in the translations but I will implement three-fold repetition for draw calculations. Grant-Acedrex's board is bigger so I suspect forcing a three-fold repetition would be more difficult.</p><h4 id="three-fold-repetition"><a href="#three-fold-repetition">Three Fold Repetition</a></h4><h4 id="theoretical-draws"><a href="#theoretical-draws">Theoretical Draws</a></h4>
+        
+
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/">Acedrex Index</a></li>
+        
+    
+
+        
+        
+
+        
+
+        
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/0-about/">0 - About</a></li>
+        
+        
+    
+
+        
+        
+
+        
+
+        
+        
+            <li class="pa1 toc3"><a class="disabled">1 - Rules</a></li>
+        
+        
+    
+
+        
+
+        
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/2-infrastructure-plan/">2 - Infrastructure Plan</a></li>
+        
+        
+    
+
+</ul>
+
+    </div>
+    <!-- sidenav seen in collapsable -->
+    <div class="dr dn-l fixed top-0 left-0 z-5 bg-light-gray w-100 ph4 pv3 h-100 f4" id="collapsable-sidenav">
+        <div class="cf">
+        <div class="close fr" id="close-button"></div>
+    </div>
+        
+<ul class="pl0">
+    <li class="pa1 toc1"><a href="/">Home</a></li>
+    <li class="pa1 toc2"><a href="/projects">Projects</a></li>
+
+    
+        
+
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/">Acedrex Index</a></li>
+        
+    
+
+        
+        
+
+        
+
+        
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/0-about/">0 - About</a></li>
+        
+        
+    
+
+        
+        
+
+        
+
+        
+        
+            <li class="pa1 toc3"><a class="disabled">1 - Rules</a></li>
+        
+        
+    
+
+        
+
+        
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/2-infrastructure-plan/">2 - Infrastructure Plan</a></li>
+        
+        
+    
+
+</ul>
+
     </div>
 
-    <ul class="fl pr2 pv4 pl3 w-20">
+
+    <div class="fl ph5-ns ph3 pv4 w-60-l bl-l br-l w-100">
         
-        <li class="toc1 pv1"><a href="#pieces">Pieces:</a></li>
+    <h1 id="rules"><a href="/projects/acedrex/1-rules/">Rules</a></h1>
+    <p>Grant Acedrex is a 12x12 chess variant with some fairy-chess pieces like Aanca, Unicornio and Giraffe. There are a total of 8 different pieces.</p><h2 id="pieces"><a href="#pieces">Pieces:</a></h2><h3 id="pawn"><a href="#pawn">Pawn</a></h3><p>Grant Acedrex pawns, like in classical chess, can only move forward and capture one 1 forwards-diagonal. Unlike classical chess though, there is no double forward as the first move or there is no enpassent capture. When reaching opposing backrank, instead of promoting to any piece, they promote to the piece that was originally on that square (e.g. a rook pawn will promote to only a rook).</p><h3 id="rook"><a href="#rook">Rook</a></h3><p>Identical to their classical counterparts.</p><h3 id="lion"><a href="#lion">Lion</a></h3><p>Lion can move as a (3,1) or (3,0) leaper.</p><h3 id="unicornio"><a href="#unicornio">Unicornio</a></h3><p>One of the most interesting fairy-pieces. At first it leaps like a classical knight (2,1), and then optionally, it can move any number of squares outwards on the diagonal of the leap.</p><h3 id="giraffe"><a href="#giraffe">Giraffe</a></h3><p>Giraffe moves as a (3,2) leaper.</p><h3 id="crocodile"><a href="#crocodile">Crocodile</a></h3><p>Identical to bishop in classical chess.</p><h3 id="aanca"><a href="#aanca">Aanca</a></h3><p>This piece's movement is also 2 parts like Unicornio. First, it moves 1 square in any diagonal, and then optionally, it moves any number of squares outwards on the orthogonal.</p><p><img src="/projects/acedrex/images/aanca_movement.png" alt="Alt text"></p><h3 id="king"><a href="#king">King</a></h3><p>Moves 1 square in any direction like in classical chess. For it's first move it can also can leap 2 squares on a chosen direction orthogonal or diagonal (but not both i.e. one forward and one left diagonal). There is no castling in Grant-Acedrex.</p><h2 id="game-end"><a href="#game-end">Game End</a></h2><h3 id="winning"><a href="#winning">Winning</a></h3><p>A player wins if at least one of the three conditions happen:</p><h4 id="checkmate"><a href="#checkmate">Checkmate</a></h4><p>Checkmate happens if a player's king is under check and there are no legal moves for the player. In this position, player whose king is under check becomes checkmated and loses the game.</p><h4 id="stalemate"><a href="#stalemate">Stalemate</a></h4><p>Stalemate happens if a player's king is NOT under check and there are no legal moves for the player. In this scenario, the player who is stalemated loses. In classical chess, this results in a draw.</p><h4 id="all-pieces-are-captured"><a href="#all-pieces-are-captured">All Pieces Are Captured</a></h4><p>If one of the player's all pieces are captured (except the king as king cannot be captured), that player loses the game.</p><h3 id="draws"><a href="#draws">Draws</a></h3><p>There are no conditions for the draw in the translations but I will implement three-fold repetition for draw calculations. Grant-Acedrex's board is bigger so I suspect forcing a three-fold repetition would be more difficult.</p><h4 id="three-fold-repetition"><a href="#three-fold-repetition">Three Fold Repetition</a></h4><h4 id="theoretical-draws"><a href="#theoretical-draws">Theoretical Draws</a></h4>
+
+    </div>
+
+    <div class="fl pl4 pv4 w-20 dn db-l">
         
-        <li class="toc2 pv1"><a href="#pawn">Pawn</a></li>
-        
-        <li class="toc2 pv1"><a href="#rook">Rook</a></li>
-        
-        <li class="toc2 pv1"><a href="#lion">Lion</a></li>
-        
-        <li class="toc2 pv1"><a href="#unicornio">Unicornio</a></li>
-        
-        <li class="toc2 pv1"><a href="#giraffe">Giraffe</a></li>
-        
-        <li class="toc2 pv1"><a href="#crocodile">Crocodile</a></li>
-        
-        <li class="toc2 pv1"><a href="#aanca">Aanca</a></li>
-        
-        <li class="toc2 pv1"><a href="#king">King</a></li>
-        
-        <li class="toc1 pv1"><a href="#game-end">Game End</a></li>
-        
-        <li class="toc2 pv1"><a href="#winning">Winning</a></li>
-        
-        <li class="toc3 pv1"><a href="#checkmate">Checkmate</a></li>
-        
-        <li class="toc3 pv1"><a href="#stalemate">Stalemate</a></li>
-        
-        <li class="toc3 pv1"><a href="#all-pieces-are-captured">All Pieces Are Captured</a></li>
-        
-        <li class="toc2 pv1"><a href="#draws">Draws</a></li>
-        
-        <li class="toc3 pv1"><a href="#three-fold-repetition">Three Fold Repetition</a></li>
-        
-        <li class="toc3 pv1"><a href="#theoretical-draws">Theoretical Draws</a></li>
-        
-    </ul>
+<ul class="pl0">
+    
+    <li class="toc1 pv1"><a href="#pieces">Pieces:</a></li>
+    
+    <li class="toc2 pv1"><a href="#pawn">Pawn</a></li>
+    
+    <li class="toc2 pv1"><a href="#rook">Rook</a></li>
+    
+    <li class="toc2 pv1"><a href="#lion">Lion</a></li>
+    
+    <li class="toc2 pv1"><a href="#unicornio">Unicornio</a></li>
+    
+    <li class="toc2 pv1"><a href="#giraffe">Giraffe</a></li>
+    
+    <li class="toc2 pv1"><a href="#crocodile">Crocodile</a></li>
+    
+    <li class="toc2 pv1"><a href="#aanca">Aanca</a></li>
+    
+    <li class="toc2 pv1"><a href="#king">King</a></li>
+    
+    <li class="toc1 pv1"><a href="#game-end">Game End</a></li>
+    
+    <li class="toc2 pv1"><a href="#winning">Winning</a></li>
+    
+    <li class="toc3 pv1"><a href="#checkmate">Checkmate</a></li>
+    
+    <li class="toc3 pv1"><a href="#stalemate">Stalemate</a></li>
+    
+    <li class="toc3 pv1"><a href="#all-pieces-are-captured">All Pieces Are Captured</a></li>
+    
+    <li class="toc2 pv1"><a href="#draws">Draws</a></li>
+    
+    <li class="toc3 pv1"><a href="#three-fold-repetition">Three Fold Repetition</a></li>
+    
+    <li class="toc3 pv1"><a href="#theoretical-draws">Theoretical Draws</a></li>
+    
+</ul>
+
+    </div>
 </div>
+
+<script>
+    const btn = document.getElementById("collapse-button");
+    const leftside = document.getElementById("collapsable-sidenav");
+    const closebtn = document.getElementById("close-button");
+
+    btn.onclick = () => {
+        leftside.classList.toggle('collapsed');
+    }
+
+    closebtn.onclick = () => {
+        leftside.classList.toggle('collapsed');
+    }
+
+</script>
 
 
     </main>

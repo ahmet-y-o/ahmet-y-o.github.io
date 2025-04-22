@@ -9,64 +9,162 @@
     <link rel="stylesheet" href="/css/index.css">
 </head>
 
-<body class="bg-white dark-gray">
-    <main class="ph7-l ph0-m ph0 ">
+<body class="bg-white dark-gray sans-serif">
+    <main class="ph0 ">
         
+
+<style>
+    .collapsed {
+        display: none !important;
+    }
+
+    .close {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    .close::before,
+    .close::after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: #333;
+    }
+
+    .close::before {
+        transform: rotate(45deg);
+    }
+
+    .close::after {
+        transform: rotate(-45deg);
+    }
+</style>
+
 
 <div class="cf">
-    <ul class="fl ph2 pv4 w-20">
+    <div class="w-100 dn-l bb pv2">
+        <div class="mh3 mv3 di" id="collapse-button" style="cursor: pointer;">
+            
+            <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"></path>
+            </svg>
+        </div>
+    </div>
+    <!-- Sidenav seen in large views  -->
+    <div class="fl pl4 pv4 w-20 dn db-l">
+        
+<ul class="pl0">
+    <li class="pa1 toc1"><a href="/">Home</a></li>
+    <li class="pa1 toc2"><a href="/projects">Projects</a></li>
 
-        <li class="pa1 toc1"><a href="/">Home</a></li>
-        <li class="pa1 toc2"><a href="/projects">Projects</a></li>
-
-        
-
-        
-        
-        
-        
-        <li class="pa1 toc3"><a href="/projects/acedrex/">Acedrex Index</a></li>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <li class="pa1 toc3"><a href="/projects/acedrex/0-about/">0 - About</a></li>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <li class="pa1 toc3"><a href="/projects/acedrex/1-rules/">1 - Rules</a></li>
-        
-        
-        
-        
-        
-        
-        
-        
-        <li class="pa1 toc3"><a class="disabled">2 - Infrastructure Plan</a></li>
-        
-        
-        
-        
-    </ul>
     
-    <div class="fl ph5 pv4 w-60 bl br">
-        <h1 id="infrastructure-plan"><a href="/projects/acedrex/2-infrastructure-plan/">Infrastructure Plan</a></h1>
-        <p>We will be developing this project in 2 parts: frontend and backend. We will develop in this order:</p><ol>
+        
+
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/">Acedrex Index</a></li>
+        
+    
+
+        
+        
+
+        
+
+        
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/0-about/">0 - About</a></li>
+        
+        
+    
+
+        
+        
+
+        
+
+        
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/1-rules/">1 - Rules</a></li>
+        
+        
+    
+
+        
+
+        
+        
+            <li class="pa1 toc3"><a class="disabled">2 - Infrastructure Plan</a></li>
+        
+        
+    
+
+</ul>
+
+    </div>
+    <!-- sidenav seen in collapsable -->
+    <div class="dr dn-l fixed top-0 left-0 z-5 bg-light-gray w-100 ph4 pv3 h-100 f4" id="collapsable-sidenav">
+        <div class="cf">
+        <div class="close fr" id="close-button"></div>
+    </div>
+        
+<ul class="pl0">
+    <li class="pa1 toc1"><a href="/">Home</a></li>
+    <li class="pa1 toc2"><a href="/projects">Projects</a></li>
+
+    
+        
+
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/">Acedrex Index</a></li>
+        
+    
+
+        
+        
+
+        
+
+        
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/0-about/">0 - About</a></li>
+        
+        
+    
+
+        
+        
+
+        
+
+        
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/1-rules/">1 - Rules</a></li>
+        
+        
+    
+
+        
+
+        
+        
+            <li class="pa1 toc3"><a class="disabled">2 - Infrastructure Plan</a></li>
+        
+        
+    
+
+</ul>
+
+    </div>
+
+
+    <div class="fl ph5-ns ph3 pv4 w-60-l bl-l br-l w-100">
+        
+    <h1 id="infrastructure-plan"><a href="/projects/acedrex/2-infrastructure-plan/">Infrastructure Plan</a></h1>
+    <p>We will be developing this project in 2 parts: frontend and backend. We will develop in this order:</p><ol>
 <li>Frontend game logic</li>
 <li>UI</li>
 <li>Backend game logic</li>
@@ -75,7 +173,7 @@
 </ol><p>Of course we will return and improve stuff from the previous steps, this is more of a general guideline.</p><h2 id="frontend-game-logic"><a href="#frontend-game-logic">Frontend Game Logic</a></h2><p>We will implement the game in typescript with object oriented paradigm. This step should not include anything to do with the ui ( decoupling ).</p><h2 id="ui"><a href="#ui">UI</a></h2><p>We will implement the ui in Angular, we will be using services and observables (link) to setup a further-developable system.</p><h2 id="backend-game-logic"><a href="#backend-game-logic">Backend Game Logic</a></h2><p>We will implement the game in Go using interfaces and structs. Main problem with this approach is that we will be duplicating complex logic for both frontend and backend. One solution to this is that we can send necessary data to frontend from backend. But this approach has problems as well, mainly reduced ui responsiveness.</p><table>
 <thead>
 <tr>
-<th>Approach</th>
+<th></th>
 <th>Seperate Logic in UI and Backend</th>
 <th>Logic Only In Backend</th>
 </tr>
@@ -110,7 +208,7 @@ There's no way I'm going to stand up for bad ingredients. We love seasonal ingre
 </blockquote><p></p><p>We can implement our game logic in go, then compile it targeting WASM. This way, we get best of the both worlds!</p><table>
 <thead>
 <tr>
-<th>Approach</th>
+<th></th>
 <th>Seperate Logic in UI and Backend</th>
 <th>Logic Only In Backend</th>
 <th>WASM Target Client</th>
@@ -143,18 +241,38 @@ There's no way I'm going to stand up for bad ingredients. We love seasonal ingre
 </tr>
 </tbody>
 </table>
+
     </div>
 
-    <ul class="fl pr2 pv4 pl3 w-20">
+    <div class="fl pl4 pv4 w-20 dn db-l">
         
-        <li class="toc1 pv1"><a href="#frontend-game-logic">Frontend Game Logic</a></li>
-        
-        <li class="toc1 pv1"><a href="#ui">UI</a></li>
-        
-        <li class="toc1 pv1"><a href="#backend-game-logic">Backend Game Logic</a></li>
-        
-    </ul>
+<ul class="pl0">
+    
+    <li class="toc1 pv1"><a href="#frontend-game-logic">Frontend Game Logic</a></li>
+    
+    <li class="toc1 pv1"><a href="#ui">UI</a></li>
+    
+    <li class="toc1 pv1"><a href="#backend-game-logic">Backend Game Logic</a></li>
+    
+</ul>
+
+    </div>
 </div>
+
+<script>
+    const btn = document.getElementById("collapse-button");
+    const leftside = document.getElementById("collapsable-sidenav");
+    const closebtn = document.getElementById("close-button");
+
+    btn.onclick = () => {
+        leftside.classList.toggle('collapsed');
+    }
+
+    closebtn.onclick = () => {
+        leftside.classList.toggle('collapsed');
+    }
+
+</script>
 
 
     </main>

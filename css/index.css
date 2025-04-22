@@ -1530,7 +1530,12 @@ img {
   font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir, "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial, sans-serif;
 }
 
-.serif {
+.serif, h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: georgia, times, serif;
 }
 
@@ -9109,6 +9114,10 @@ h6 a:hover::after {
   font-size: medium;
   cursor: pointer;
   margin-left: 10px;
+}
+
+h2 {
+  font-weight: 100;
 }
 
 .toc1 {
