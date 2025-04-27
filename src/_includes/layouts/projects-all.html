@@ -1,15 +1,30 @@
-{% extends "layouts/base.html" %}
+{% extends "layouts/three-section-layout.html" %}
 
-{% block content %}
+{% block leftside %}
+<ul class="pl0">
+    <li class="pa1 toc1"><a href="/">Home</a></li>
+    <li class="pa1 toc2"><a class="disabled">Projects</a></li>
+</ul>
+{% endblock %}
 
+{% block collapsibleleftside %}
+<ul class="pl0">
+    <li class="pa1 toc1"><a href="/">Home</a></li>
+    <li class="pa1 toc2"><a class="disabled">Projects</a></li>
+</ul>
+{% endblock %}
 
+{% block middle %}
+
+<h1><a href="{{ page.url }}"">{{ title | safe }}</a></h1>
+{{ content | safe }}
 
 <ul>
     {% set projects = collections.project | uniqueProjectNames %}
     {% for project in projects %}
-    <li><a href="{{project.link}}">{{ project.name }}</a></li>
+    <li><a href=" {{project.link}}">{{ project.name }}</a></li>
     {% endfor %}
-</ul>
+    </ul>
 
 
-{% endblock %}
+    {% endblock middle %}

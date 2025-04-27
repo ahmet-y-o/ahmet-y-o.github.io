@@ -1,123 +1,160 @@
-{% extends "layouts/base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+    <link rel="stylesheet" href="{{ '/css/index.css' | url }}" />
+</head>
+
+<body class="bg-white dark-gray sans-serif">
+    <style>
+        ul>li {
+            list-style-type: circle;
+            list-style-position: inside;
+        }
+    </style>
 
 
-{% block content %}
-<div class="cf mv4">
-    <ul class="fl ph2 w-20-l w-1-m w-1-ns">
-    </ul>
-    <div class="fl ph4 ph5-ns w-60-l w-100-m w-100-ns">
-        <!-- Hero start -->
-        <div class="tc ph4">
-            <h1 class="f1 fw3 black-90 mv3">
-                Fullstack Web Developer | Building Scalables and Efficient Solutions.
-            </h1>
-            <h2 class="f3 f4-m f3-l fw3 black-50 mt0 lh-copy">
-                Flexible in technology, passionate about innovation, and committed to delivering results.
-            </h2>
-        </div>
-        <!-- Hero end -->
-
-
-        <!-- About start -->
-        <div class="mv4">
-            <p>
-                I'm a fullstack web developer with a passion for creating robust and user-friendly web applications. I
-                thrive in dynamic environments and enjoy tackling complex challenges. My ability to adapt to various
-                technologies, coupled with strong communication skills, allows me to collaborate effectively with teams
-                and stakeholders. I approach projects with a holistic perspective, considering both the technical and
-                business aspects to ensure successful outcomes. I am always excited to learn new things, and work on
-                interesting projects.
-            </p>
-        </div>
-        <!-- About end -->
-
-        <!-- Projects start -->
-        <div>
-            <h2 class="mv2 dib">Featured Projects</h2><a class="ml3 f5" href="/projects">See all</a>
-        </div>
-        <div class="cf">
-            {% for project in collections.project %}
-            {% if project.data.order == -1 %}
-            <div class="fl w-100 w-100-m w-50-l pv2 ph2 h5">
-                <div class="center mw6 br3 hidden ba b--black-10 pb3">
-                    <h3 class="f4 bg-near-white br3 br--top black-70 mv0 pv2 ph3">{{ project.data.project }}</h3>
-                    <div class="ph3 pv1 bt b--black-10">
-                        <p class="lh-copy measure h4 overflow-scroll mv2">
-                            {{ project.data.description }}
-                        </p>
-                        <a class="" href="{{ project.url }}">Project Page</a>
-                    </div>
-
+    <main class="ph6-l ph0-m ph0 ">
+        <div class="cf mv4">
+            <ul class="fl ph2 w-20-l w-1-m w-1-ns">
+            </ul>
+            <div class="fl ph4 ph5-ns w-60-l w-100-m w-100-ns">
+                <!-- Hero start -->
+                <div class="tc ph4">
+                    <h1 class="f1 fw3 black-90 mv3">
+                        Fullstack Web Developer | Building Scalables and Efficient Solutions.
+                    </h1>
+                    <h2 class="f3 f4-m f3-l fw3 black-50 mt0 lh-copy">
+                        Flexible in technology, passionate about innovation, and committed to delivering results.
+                    </h2>
                 </div>
+                <!-- Hero end -->
+
+
+                <!-- About start -->
+                <div class="mv4">
+                    <p>
+                        I'm a fullstack web developer with a passion for creating robust and user-friendly web
+                        applications. I
+                        thrive in dynamic environments and enjoy tackling complex challenges. My ability to adapt to
+                        various
+                        technologies, coupled with strong communication skills, allows me to collaborate effectively
+                        with teams
+                        and stakeholders. I approach projects with a holistic perspective, considering both the
+                        technical and
+                        business aspects to ensure successful outcomes. I am always excited to learn new things, and
+                        work on
+                        interesting projects.
+                    </p>
+                </div>
+                <!-- About end -->
+
+                <!-- Projects start -->
+                <div>
+                    <h2 class="mv2 dib">Featured Projects</h2><a class="ml3 f5" href="/projects">See all</a>
+                </div>
+                <div class="cf">
+                    {% for project in collections.project %}
+                    {% if project.data.order == -1 %}
+                    <div class="fl w-100 w-100-m w-50-l pv2 ph2 h5">
+                        <div class="center mw6 br3 hidden ba b--black-10 pb3">
+                            <h3 class="f4 bg-near-white br3 br--top black-70 mv0 pv2 ph3">{{ project.data.project }}
+                            </h3>
+                            <div class="ph3 pv1 bt b--black-10">
+                                <p class="lh-copy measure h4 overflow-scroll mv2">
+                                    {{ project.data.description }}
+                                </p>
+                                <a class="" href="{{ project.url }}">Project Page</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <!-- Projects end -->
+
+
+                <!-- Skills start -->
+                <h2 class="mv2">Skills</h2>
+                <div class="dt-ns dt--fixed-ns">
+                    <div class="dtc-ns tc pv3 bg-black-10">
+                        <h3 class="">Frontend</h3>
+                        <ul class="list pl0">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>Javascript</li>
+                            <li>React</li>
+                            <li>Vue</li>
+                            <li>Angular</li>
+                        </ul>
+                    </div>
+                    <div class="dtc-ns tc pv3 bg-black-05">
+                        <h3>Backend</h3>
+                        <ul class="list pl0">
+                            <li>Node.js</li>
+                            <li>Python</li>
+                            <li>Django</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
+                    <div class="dtc-ns tc pv3 bg-black-10">
+                        <h3>Other</h3>
+                        <ul class="list pl0">
+                            <li>Docker</li>
+                            <li>Git</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Skills end -->
+
+
+                <!-- Contact start -->
+                <h2 class="mb2 mt4">Contact</h2>
+                <div>
+                    <p class="tc fw5 f3 mb0">Want to have a chat?</p>
+                    <p class="tc mt2">I would love to talk about work, design and opportunities</p>
+                    <div class="ph3 flex justify-center">
+                        <a class="link hover-silver near-black dib mh3 tc" href="mailto:ahmetyigitozdogan@gmail.com"
+                            title="Github">
+                            <svg class="dib h2 w2" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
+                                stroke-miterlimit="1.414">
+                                <path
+                                    d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.083-.202-.358-1.015.077-2.117 0 0 .672-.215 2.2.82.638-.178 1.323-.266 2.003-.27.68.004 1.364.092 2.003.27 1.527-1.035 2.198-.82 2.198-.82.437 1.102.163 1.915.08 2.117.513.56.823 1.274.823 2.147 0 3.073-1.87 3.75-3.653 3.947.287.246.543.735.543 1.48 0 1.07-.01 1.933-.01 2.195 0 .215.144.463.55.385C13.71 14.53 16 11.534 16 8c0-4.418-3.582-8-8-8" />
+                            </svg>
+                            <span class="f6 db">Github</span>
+                        </a>
+                        <a class="link hover-silver near-black dib mh3 tc" href="mailto:ahmetyigitozdogan@gmail.com"
+                            title="Email">
+                            <svg fill="currentColor" class="dib h2 w2" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Gmail</title><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+                            <span class="f6 db">E-mail</span>
+                        </a>
+                        <a class="link hover-silver near-black dib mh3 tc" target="_blank"
+                            href="https://www.linkedin.com/in/ahmet-yi%C4%9Fit-%C3%B6zdo%C4%9Fan-9a3147151"
+                            title="LinkedIn">
+                            <svg class="dib h2 w2" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
+                                stroke-miterlimit="1.414">
+                                <path
+                                    d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6H8.51V7.04h.03c.318-.6 1.092-1.233 2.247-1.233 2.4 0 2.845 1.58 2.845 3.637v4.188zM3.558 4.955c-.762 0-1.376-.617-1.376-1.377 0-.758.614-1.375 1.376-1.375.76 0 1.376.617 1.376 1.375 0 .76-.617 1.377-1.376 1.377zm1.188 8.68H2.37V6h2.376v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635c.652 0 1.185-.516 1.185-1.153V1.153C16 .516 15.467 0 14.815 0z"
+                                    fill-rule="nonzero" />
+                            </svg>
+                            <span class="f6 db">LinkedIn</span>
+                        </a>
+
+                    </div>
+                </div>
+                <!-- Contact end -->
+
             </div>
-            {% endif %}
-            {% endfor %}
         </div>
-        <!-- Projects end -->
+    </main>
+    {% include "partials/footer.html" %}
+</body>
 
-
-        <!-- Skills start -->
-        <h2 class="mv2">Skills</h2>
-        <div class="dt-ns dt--fixed-ns">
-            <div class="dtc-ns tc pv3 bg-black-10">
-                <h3 class="">Frontend</h3>
-                <ul>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>CSS</li>
-                    <li>Javascript</li>
-                    <li>React</li>
-                    <li>Vue</li>
-                    <li>Angular</li>
-                </ul>
-            </div>
-            <div class="dtc-ns tc pv3 bg-black-05">
-                <h3>Backend</h3>
-                <ul>
-                    <li>Node.js</li>
-                    <li>Python</li>
-                    <li>Django</li>
-                    <li>SQL</li>
-                </ul>
-            </div>
-            <div class="dtc-ns tc pv3 bg-black-10">
-                <h3>Other</h3>
-                <ul>
-                    <li>Docker</li>
-                    <li>Git</li>
-                </ul>
-            </div>
-        </div>
-        <!-- Skills end -->
-
-
-        <!-- Contact start -->
-        <h2 class="mb2 mt4">Contact</h2>
-        <div>
-            <p class="tc fw5 f3 mb0">Want to have a chat?</p>
-            <p class="tc mt2">I would love to talk about work, design and opportunities</p>
-            <div class="ph3 flex justify-center">
-                <a class="link hover-silver near-black dib mh3 tc" href="mailto:ahmetyigitozdogan@gmail.com" title="LinkedIn">
-                    <svg class="dib h2 w2"  role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M15.61 12c0 1.99-1.62 3.61-3.61 3.61-1.99 0-3.61-1.62-3.61-3.61 0-1.99 1.62-3.61 3.61-3.61 1.99 0 3.61 1.62 3.61 3.61M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12c2.424 0 4.761-.722 6.76-2.087l.034-.024-1.617-1.879-.027.017A9.494 9.494 0 0 1 12 21.54c-5.26 0-9.54-4.28-9.54-9.54 0-5.26 4.28-9.54 9.54-9.54 5.26 0 9.54 4.28 9.54 9.54a9.63 9.63 0 0 1-.225 2.05c-.301 1.239-1.169 1.618-1.82 1.568-.654-.053-1.42-.52-1.426-1.661V12A6.076 6.076 0 0 0 12 5.93 6.076 6.076 0 0 0 5.93 12 6.076 6.076 0 0 0 12 18.07a6.02 6.02 0 0 0 4.3-1.792 3.9 3.9 0 0 0 3.32 1.805c.874 0 1.74-.292 2.437-.821.719-.547 1.256-1.336 1.553-2.285.047-.154.135-.504.135-.507l.002-.013c.175-.76.253-1.52.253-2.457 0-6.617-5.383-12-12-12" />
-                    </svg>
-                    <span class="f6 db">E-mail</span>
-                </a>
-                <a class="link hover-silver near-black dib mh3 tc" target="_blank" href="https://www.linkedin.com/in/ahmet-yi%C4%9Fit-%C3%B6zdo%C4%9Fan-9a3147151" title="LinkedIn">
-                    <svg class="dib h2 w2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
-                        fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414">
-                        <path
-                            d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6H8.51V7.04h.03c.318-.6 1.092-1.233 2.247-1.233 2.4 0 2.845 1.58 2.845 3.637v4.188zM3.558 4.955c-.762 0-1.376-.617-1.376-1.377 0-.758.614-1.375 1.376-1.375.76 0 1.376.617 1.376 1.375 0 .76-.617 1.377-1.376 1.377zm1.188 8.68H2.37V6h2.376v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635c.652 0 1.185-.516 1.185-1.153V1.153C16 .516 15.467 0 14.815 0z"
-                            fill-rule="nonzero" />
-                    </svg>
-                    <span class="f6 db">LinkedIn</span>
-                </a>
-
-            </div>
-        </div>
-        <!-- Contact end -->
-
-    </div>
-</div>
-{% endblock %}
+</html>

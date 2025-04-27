@@ -1,6 +1,7 @@
 {% extends "layouts/three-section-layout.html" %}
 
     {% block leftside %}
+    <ul class="pl0">
         <li class="pa1 toc1"><a href="/">Home</a></li>
         <li class="pa1 toc2"><a href="/projects">Projects</a></li>
 
@@ -19,6 +20,7 @@
         {% endif %}
         {% endif %}
         {% endfor %}
+    </ul>
     {% endblock leftside %}
 
     {% block middle %}
