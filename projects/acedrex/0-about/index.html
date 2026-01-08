@@ -75,6 +75,15 @@
         
     
 
+        
+
+        
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/3-backend/">3 - Backend</a></li>
+        
+        
+    
+
 </ul>
 
     </div>
@@ -127,12 +136,21 @@
         
     
 
+        
+
+        
+        
+            <li class="pa1 toc3"><a href="/projects/acedrex/3-backend/">3 - Backend</a></li>
+        
+        
+    
+
 </ul>
 
     </div>
 
 
-    <div class="fl ph5-ns ph3 pv4 w-60-l bl-l br-l w-100">
+    <div id="main" class="fl ph5-ns ph3 pv4 w-60-l bl-l br-l w-100">
         
     <h1 id="about"><a href="/projects/acedrex/0-about/">About</a></h1>
     <h2 id="overview"><a href="#overview">Overview</a></h2><p>This project is about designing and implementing an online multiplayer <a href="https://en.wikipedia.org/wiki/Chess">chess</a>-<a href="https://en.wikipedia.org/wiki/Chess_variant">variant</a> (<a href="https://en.wikipedia.org/wiki/Grant_Acedrex">grant acedrex</a>) platform. I will be sharing with you my journey through this ordeal. This series is intended for readers who are more interested in project design and architecture as implementation is rather naive. If this platform gains popularity, I will be implementing better performance algorithms. If you are more interested in chess programming, you should definitely check out <a href="https://www.chessprogramming.org/Main_Page">chessprogramming.org</a>.  Without further ado, lets start.</p><h2 id="motivation"><a href="#motivation">Motivation</a></h2><p>I love chess and as a developer I always wanted to write a chess engine. But for this project, I wanted to create something new as there are many good implementations of classical chess. Looking through chess variants, I stumbled upon Grant Acedrex and after a quick investigation, found that there are no online platforms to play this variant. The variant seemed fun to me on the first glance and I decided to implement it.</p><h2 id="technology"><a href="#technology">Technology</a></h2><h3 id="frontend"><a href="#frontend">Frontend</a></h3><h4 id="angular-as-frontend-framework"><a href="#angular-as-frontend-framework">Angular as Frontend Framework</a></h4><p>I decided to use Angular as I've never tried it and I've heard that it is great for enterprise and is great for organising big projects (as I've been struggling with it using <a href="https://react.dev/">React</a>).</p><h4 id="tailwindcss-as-css-library"><a href="#tailwindcss-as-css-library">TailwindCSS as CSS library</a></h4><p>I decided to use <a href="https://tailwindcss.com/">TailwindCSS</a> as I was creating one of my passion projects and wanted it to have an original design. This means I have to design how my platform will look as opposed to using something more opinionated like <a href="https://bulma.io/">Bulma</a> or <a href="https://getbootstrap.com/">Bootstrap</a></p><h3 id="backend"><a href="#backend">Backend</a></h3><h4 id="go-as-backend"><a href="#go-as-backend">Go as Backend</a></h4><p>I've used Go before but not in a deployed project. I wanted to quickly create a webservice with good performance and found Go to be the best alternative. Other options I've pondered were Haskell, Scala and C++. Getting closer to finishing the project, I've come to the conclusion that using C++ to implement the engine and using LaravelPHP or Go as the platform's web backend would have been more appropriate.</p><h4 id="no-db"><a href="#no-db">No DB</a></h4><p>I didn't plan any auth or history database for this project. I only wanted a platform where friends can play together. After publishing it, if a userbase is formed, I will implement these features. If that time comes, I am considering <a href="https://github.com/redis/redis">Redis</a> and <a href="https://www.sqlite.org/">SQLite</a> for databases.</p>

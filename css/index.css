@@ -9104,6 +9104,10 @@ code, .code {
     vertical-align: bottom;
   }
 }
+#main {
+  min-height: 500px;
+}
+
 h1 a:hover::after,
 h2 a:hover::after,
 h3 a:hover::after,
