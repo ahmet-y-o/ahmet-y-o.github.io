@@ -1,5 +1,9 @@
 @use '../../node_modules/tachyons/css/tachyons.css';
 
+#main {
+    min-height: 500px;
+}
+
 h1,
 h2,
 h3,
